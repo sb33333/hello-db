@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BakedBean">
+	
+	<select id="createTable" parameterType="map">
+		${init_table}
+	</select>
+	
+	<insert id="insertOne" parameterType="hello.entity.BakedBean">
+		INSERT INTO BAKEDBEAN VALUES(${id}, '${name}')
+	</insert>
+	
+	<select id="select" parameterType="_long" resultType="hello.entity.BakedBean">
+		SELECT * FROM BAKEDBEAN
+		<if test = "_parameter != null">
+		WHERE ID = #{_parameter}
+		</if>
+	</select>
+
+
+</mapper>
